@@ -1,0 +1,24 @@
+@layout('layout')
+@section('content')
+<div class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-half is-offset-one-quarter">
+                <form action="/gorevler/yeni" method="POST">
+                    {{ csrfField() }}
+                        <div class="field">
+                            <label class="label has-text-centered">Yeni Görev</label>
+                            <div class="control">
+                            <input class="input" type="text" name="gorev" placeholder="Yeni bir görev ekle" value="{{old('gorev')}}">
+                            {{elIf('<span class="message is-primary">$self</span>',getErrorFor('gorev'),hasErrorFor('gorev'))}}
+                            </div>
+                        </div>
+                    <input class="button is-primary" type="submit" value="Ekle" style="width:100%;">
+                </form>
+            </div>
+        </div>
+            
+            
+    </div>
+</div>
+@endsection

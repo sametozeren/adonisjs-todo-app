@@ -1,0 +1,46 @@
+@layout('layout')
+@section('content')
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                @if(old('alert'))
+                <article class="message is-primary">
+                        <div class="message-header">
+                          <p>{{old('alert')}}</p>
+                        </div>
+                      </article>
+                @endif
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column">
+                    <table class="table" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th><abbr title="Position">Id</abbr></th>
+                                    <th>Görev</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @each(item in gorevler)
+                                    <tr>
+                                        <th>{{item.id}}</th>
+                                        <td>{{item.gorev}}</td>
+                                        <td>
+                                            <form action="{{'/gorevler/'+item.id+'?_method=DELETE'}}" method="POST">
+                                                {{ csrfField() }}
+                                                <button type="submit" class="button is-danger is-small">SİL X</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endeach
+                            </tbody>
+                        </table>
+            </div>
+            
+        </div>
+    </div>
+</section>
+@endsection
