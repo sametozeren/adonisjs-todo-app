@@ -29,4 +29,12 @@ Run the following command to run startup migrations.
 ```js
 adonis migration:run
 ```
-"# adonisjs-todo-app" 
+### Install
+
+npm install
+
+### Run
+
+npm run serve:dev
+
+http://127.0.0.1:3333/
